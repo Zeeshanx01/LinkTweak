@@ -1,44 +1,197 @@
+'use client'
 import React from 'react'
 import Link from 'next/link'
+import { createContext, useContext, useState, useEffect } from 'react';
+import 'flowbite';
+import { useDarkMode } from '../DarkModeContext';
+import { DarkModeProvider } from '../DarkModeContext';
+
+
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+
+  // const [darkMode, setDarkMode] = useDarkMode();
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+
+  // const toggleDarkMode = () => {
+  //   setDarkMode(!darkMode);
+  // };
+
+
+
+  console.log('Dark Mode:', darkMode);
+  console.log('Dark Mode Setter:', setDarkMode);
+  
+  // Apply the dark mode class to <html> on toggle
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [darkMode]);
+
   return (
     <>
 
-      <nav className='bg-slate-600 flex justify-evenly items-center font-semibold h-[5vh]'>
+    
+
+      <div className='h-[8vh]'>
+        <nav className="bg-slate-800 duration-300 relative z-20 border-gray-200 dark:bg-gray-900 h-[8vh]">
+
+          <div className="max-w-screen-xl duration-300 flex flex-wrap items-center justify-between mx-auto px-4 py-[1rem] h-[8vh]">
 
 
 
-        <div className="logo font-bold text-2xl text-white">
-          Link Tweak
-        </div>
+            <Link href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+              <img src="https://flowbite.com/docs/images/logo.svg" className="h-8" alt="Flowbite Logo" />
+              <span className="self-center text-slate-200 text-2xl font-semibold whitespace-nowrap dark:text-white">LinkTweak</span>
+            </Link>
 
 
 
-        <ul className='flex justify-center items-center text-white font-semibold space-x-4 py-'>
-          <Link href='/'><li>Home</li></Link>
-          <Link href='/about'><li>About</li></Link>
-          <Link href='/generate'><li>Services</li></Link>
-          <Link href='/contact'><li>Contact</li></Link>
-
-          <li className='flex justify-center items-center space-x-4'>
-
-            <Link href='/generate'><button className='px-2 py-1 font-bold bg-sky-700 rounded-md'>Try Now</button></Link>
-            
+            <div className="flex md:order-2 space-x-3 md:space-x-3 rtl:space-x-reverse">
 
 
-
-          </li>
-
-        </ul>
-
-
-
-      </nav>
+              <button
+                type="button"
+                className="px-3 py-0 font-bold duration-300 bg-sky-700 rounded-lg text-white  hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-blue-300   text-sm  text-center dark:bg-sky-600 dark:hover:bg-sky-700 dark:focus:ring-sky-800"
+              >
+                Get started
+              </button>
 
 
+              <button
+                type="button"
+                onClick={toggleMenu}
+                onBlur={() => { setTimeout(() => { setIsMenuOpen(false) }, 200) }}
+                className="inline-flex items-center p-4 duration-300 justify-center text-sm text-gray-800 rounded-lg md:hidden bg-slate-500 hover:bg-slate-600 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                aria-controls="navbar-cta"
+                aria-expanded={isMenuOpen}
+              >
+                <span className="sr-only">Open main menu</span>
+                <svg
+                  className="w-5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 17 14"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M1 1h15M1 7h15M1 13h15"
+                  />
+                </svg>
+              </button>
 
+
+              <button
+                onClick={() => setDarkMode(!darkMode)}
+                // onClick={toggleDarkMode}
+                // onClick={() => setDarkMode(!darkMode)}
+                className="p-2 duration-300 rounded-lg  bg-slate-500 dark:bg-slate-700 dark:text-white text-black"
+              >
+                <img className='w-8' src={darkMode ? '/icons/lightmode.gif' : '/icons/darkmode.gif'} alt="" />
+              </button>
+
+
+            </div>
+
+
+
+
+            <div
+              className={`items-center duration-300 justify-between ${isMenuOpen ? 'relative z-10 bg-slate-50 w-[100vw]' : 'hidden'
+                } w-full md:flex md:w-auto md:order-1`}
+              id="navbar-cta"
+            >
+
+
+              <ul className={` bg-opacity-70 dark:bg-opacity-80 backdrop-blur-sm dark:backdrop-blur-sm duration-300 flex flex-col  font-medium max-md:absolute max-md:z-20 max-md:w-48 right-4 top-3 p-4 md:p-0 mt-4 border border-gray-600 rounded-lg bg-slate-700 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-slate-800 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700`}>
+                <li>
+                  <Link
+                    href="/"
+                    // className="block max-md:z-40 py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:dark:text-blue-500"
+                    className="block duration-300 py-2 px-3 md:p-0 text-gray-200 rounded hover:bg-slate-800 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-slate-800 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                    aria-current="page"
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/about"
+                    className="block duration-300 py-2 px-3 md:p-0 text-gray-200 rounded hover:bg-slate-800 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-slate-800 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                  >
+                    About
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/generate"
+                    className="block duration-300 py-2 px-3 md:p-0 text-gray-200 rounded hover:bg-slate-800 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-slate-800 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                  >
+                    Services
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/contact"
+                    className="block duration-300 py-2 px-3 md:p-0 text-gray-200 rounded hover:bg-slate-800 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-slate-800 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                  >
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+
+            </div>
+          </div>
+        </nav>
+      </div>
     </>
   )
 }
 
 export default Navbar
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

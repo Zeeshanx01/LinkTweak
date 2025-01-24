@@ -38,9 +38,9 @@ const Generated = () => {
   return (
     <>
       {/* form to enter url */}
-      <div className='flex-col bg-slate-6000 pt-20 justify-center items-center w-[60%] h-[80vh] mx-auto '>
+      <div className='flex-col bg-slate-6000 pt-20 justify-center items-center w-[40vw] max-md:w-[80vw] h-[80vh] mx-auto '>
         <div>
-          <h1>Genrate you short URLs </h1>
+          <h1 className='duration-300 text-7xl text-slate-200 dark:text-slate-800'>Genrate you short URLs </h1>
         </div>
         <div>
 

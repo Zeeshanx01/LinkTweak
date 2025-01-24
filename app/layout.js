@@ -2,6 +2,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import "./globals.css";
+import NextTopLoader from 'nextjs-toploader';
+import { DarkModeProvider } from "./DarkModeContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,12 +26,30 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar />
-        <div className="bg-gray-400 h-[90vh] overflow-x-auto">
-          {children}
-        </div>
-        <Footer />
+        <DarkModeProvider>
+          <Navbar />
+          <div className="duration-300 dark:bg-[#b4b7bf] bg-slate-900 h-[87vh] overflow-x-auto">
+            <NextTopLoader /> {children}
+          </div>
+          <Footer />
+        </DarkModeProvider>
       </body>
     </html>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
