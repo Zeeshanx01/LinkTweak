@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased dark:bg-[#b4b7bf] bg-slate-900`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased duration-700 dark:bg-[#b4b7bf] bg-slate-900`}
       >
           <Navbar className="relativez-50" />
           <div className="duration-700  relative -z-50  h-fit overflow-hidden ">
