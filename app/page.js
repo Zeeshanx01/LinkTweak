@@ -56,7 +56,7 @@ export default function Home() {
       </div>
 
 
-      <div className="duration-700 w-[60%] max-lg:w-full h-fit flex justify-center items-center max-lg:mb-8 max-md:mb-16 ">
+      <div className="duration-700 w-[60%] max-lg:w-full  flex justify-center items-center max-lg:mb-8 max-md:mb-16 ">
         <img className="duration-700 rounded-2xl w-[95%] mix-blend-darkenn hidden dark:block mx-auto drop-shadow2xl" src="/wide-cover.webp" alt="" />
         <img className="duration-700 rounded-2xl w-[95%] mix-blend-darkenn dark:hidden block mx-auto drop-shadow2xl" src="/wide-cover-darkmode.webp" alt="" />
       </div>
