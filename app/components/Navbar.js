@@ -39,7 +39,7 @@ const Navbar = () => {
 
     
 
-      <div className='duration-700 h-[8vh]'>
+      <div className='duration-700 h-[8vh] drop-shadow-2xl'>
         <nav className="duration-700   bg-slate-800  relative z-20 border-gray-200 dark:bg-gray-900 h-[8vh]">
 
           <div className="duration-700   max-w-screen-xl  flex flex-wrap items-center justify-between mx-auto px-4 py-[1rem] h-[8vh]">
