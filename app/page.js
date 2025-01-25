@@ -29,10 +29,10 @@ export default function Home() {
 
   return (<>
 
-    <div className={`duration-700 dark:bg-[#b4b7bf] bg-slate-900 gird grid-cols-2 -z-10  flex md:py-20 max-lg:flex-col ${zenfonts.className} `}>
+    <div className={`duration-700 dark:bg-[#b4b7bf] bg-slate-900 gird grid-cols-2   flex md:py-20 max-lg:flex-col ${zenfonts.className} `}>
 
 
-      <div className="duration-700 flex flex-col items-center justify-center w-[40%] mx-auto py-10 max-lg:w-[90%] drop-shadow-2xl bg-gray-5000">
+      <div className="duration-700 flex flex-col items-center justify-center w-[40%]  mx-auto py-10 max-lg:w-[90%] drop-shadow-2xl bg-gray-5000">
         <h1 className="duration-700 text-7xl font-bold text-slate-300 dark:text-gray-950 z-0 "><span className="max-sm:hidden"> Welcome to</span><span> Link Tweak</span></h1>
         <p className="duration-700 text-3xl font-bold text-slate-400 dark:text-gray-800">The best link shortener in the world</p>
 

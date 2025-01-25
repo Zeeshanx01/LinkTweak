@@ -25,8 +25,8 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-          <Navbar />
-          <div className="duration-700 dark:bg-[#b4b7bf] bg-slate-900 h-[87vh] overflow-x-auto">
+          <Navbar className="relativez-50" />
+          <div className="duration-700 dark:bg-[#b4b7bf] relative -z-50 bg-slate-900 h-[87vh] overflow-x-auto">
             <NextTopLoader /> {children}
           </div>
           <Footer />
