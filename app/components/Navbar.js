@@ -39,10 +39,10 @@ const Navbar = () => {
 
 
 
-      <div className='duration-700 h-[8vh] drop-shadow-2xl'>
-        <nav className="duration-700   bg-slate-800  border-gray-200 dark:bg-gray-900 h-[8vh]">
+      {/* <div className='duration-700 h-[8vh] fixed top-0 drop-shadow-2xl '> */}
+        <nav className="duration-700   bg-slate-800 w-full border-gray-200 dark:bg-gray-900 h-fit fixed top-0    flex flex-wrap items-center justify-between mx-auto px-4 py-[1rem]  ">
 
-          <div className="duration-700   max-w-screen-xl  flex flex-wrap items-center justify-between mx-auto px-4 py-[1rem] h-[8vh]">
+          {/* <div className="duration-700   max-w-screen-xl  flex flex-wrap items-center justify-between mx-auto px-4 py-[1rem] h-[8vh] fixed top-0"> */}
 
 
 
@@ -151,9 +151,9 @@ const Navbar = () => {
                 </ul>
             
             </div>
-          </div>
+          {/* </div> */}
         </nav>
-      </div>
+      {/* </div> */}
     </>
   )
 }
