@@ -29,7 +29,7 @@ export default function Home() {
 
   return (<>
 
-    <div className={`duration-700 dark:bg-[#b4b7bf] bg-slate-900 gird grid-cols-2 md:my-20  flex md:py-20 max-lg:flex-col ${zenfonts.className} `}>
+    <div className={`duration-700  dark:bg-[#b4b7bf] bg-slate-900 gird grid-cols-2 md:my-20  flex md:py-20 max-lg:flex-col ${zenfonts.className} `}>
 
 
       <div className="duration-700 flex flex-col items-center justify-center w-[40%] max-md:mt-14  mx-auto py-10 max-lg:w-[90%] drop-shadow-2xl bg-gray-5000">
@@ -64,7 +64,11 @@ export default function Home() {
 
     </div>
 
-
+{/* <div className="bg-indigo-400 w-full h-72 p-6">
+<div className="w-[80vw] mx-auto h-3  bg-indigo-600 animate-spin rounded-full">
+  .
+</div>
+</div> */}
 
 
   </>);
