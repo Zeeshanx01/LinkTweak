@@ -10,11 +10,13 @@
   },
   "dependencies": {
     "flowbite": "^2.5.2",
+    "framer-motion": "^12.5.0",
     "mongodb": "^6.12.0",
     "next": "15.1.4",
     "nextjs-toploader": "^3.7.15",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-icons": "^5.5.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
