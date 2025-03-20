@@ -40,7 +40,7 @@ const Navbar = () => {
 
 
       {/* <div className='duration-700 h-[8vh] fixed top-0 drop-shadow-2xl '> */}
-      <nav className="duration-700   bg-slate-800 w-full border-gray-200 dark:bg-gray-900 h-fit fixed top-0    flex flex-wrap items-center justify-between mx-auto px-4 py-4 max-sm:py-2  ">
+      <nav className="duration-700   bg-slate-800 dark:bg-gray-900 w-full border-gray-200  h-fit fixed top-0    flex flex-wrap items-center justify-between mx-auto px-4 py-4 max-sm:py-2  ">
 
         {/* <div className="duration-700   max-w-screen-xl  flex flex-wrap items-center justify-between mx-auto px-4 py-[1rem] h-[8vh] fixed top-0"> */}
 
@@ -143,14 +143,14 @@ const Navbar = () => {
                 Generate
               </Link>
             </li>
-            {/* <li>
+            <li>
               <Link
-                href="/contact"
+                href="/Links"
                 className="duration-700   block  py-2 px-3 md:p-0 text-gray-200 rounded hover:bg-slate-800 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-slate-800 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >
-                Contact
+                Urls
               </Link>
-            </li> */}
+            </li>
           </ul>
 
         </div>
