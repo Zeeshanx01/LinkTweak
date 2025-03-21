@@ -55,9 +55,9 @@ const Navbar = () => {
 
         <div className="duration-700  relative flex md:order-2 space-x-3 md:space-x-3 rtl:space-x-reverse">
 
-          <Link 
-          href='/generate'
-          className='m-1'
+          <Link
+            href='/generate'
+            className='m-1'
           >
             <button
               type="button"
@@ -127,14 +127,7 @@ const Navbar = () => {
                 Home
               </Link>
             </li>
-            {/* <li>
-              <Link
-                href="/about"
-                className="duration-700   block  py-2 px-3 md:p-0 text-gray-200 rounded hover:bg-slate-800 md:hover:bg-transparent md:hover:text-sky-700 md:dark:hover:text-sky-500 dark:text-white dark:hover:bg-slate-800 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-              >
-                About
-              </Link>
-            </li> */}
+
             <li>
               <Link
                 href="/generate"
@@ -149,6 +142,14 @@ const Navbar = () => {
                 className="duration-700   block  py-2 px-3 md:p-0 text-gray-200 rounded hover:bg-slate-800 md:hover:bg-transparent md:hover:text-sky-700 md:dark:hover:text-sky-500 dark:text-white dark:hover:bg-slate-800 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >
                 Urls
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/manage-urls"
+                className="duration-700   block  py-2 px-3 md:p-0 text-gray-200 rounded hover:bg-slate-800 md:hover:bg-transparent md:hover:text-sky-700 md:dark:hover:text-sky-500 dark:text-white dark:hover:bg-slate-800 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              >
+                Manage Urls
               </Link>
             </li>
           </ul>

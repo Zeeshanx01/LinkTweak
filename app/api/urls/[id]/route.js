@@ -1,4 +1,4 @@
-import { MongoClient } from 'mongodb'
+import { MongoClient, ObjectId } from 'mongodb'
 
 export async function PUT(request, { params }) {
   const { id } = params
@@ -10,8 +10,8 @@ export async function PUT(request, { params }) {
     const db = client.db('linktweak')
     const collection = db.collection('urls')
 
-    // Check if new short URL already exists
-    const existing = await collection.findOne({ 
+    // Check for duplicate short URL
+    const existing = await collection.findOne({
       shortUrl,
       _id: { $ne: new ObjectId(id) }
     })
@@ -23,17 +23,25 @@ export async function PUT(request, { params }) {
       })
     }
 
+    // Update document
     const result = await collection.updateOne(
       { _id: new ObjectId(id) },
       { $set: { url: originalUrl, shortUrl } }
     )
+
+    if (result.matchedCount === 0) {
+      return new Response(JSON.stringify({ error: 'URL not found' }), {
+        status: 404,
+        headers: { 'Content-Type': 'application/json' }
+      })
+    }
 
     return new Response(JSON.stringify({ success: true }), {
       headers: { 'Content-Type': 'application/json' }
     })
   } catch (error) {
     console.error('Update error:', error)
-    return new Response(JSON.stringify({ error: 'Database error' }), {
+    return new Response(JSON.stringify({ error: 'Server error' }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' }
     })
@@ -51,13 +59,21 @@ export async function DELETE(request, { params }) {
     const db = client.db('linktweak')
     const collection = db.collection('urls')
 
-    await collection.deleteOne({ _id: new ObjectId(id) })
+    const result = await collection.deleteOne({ _id: new ObjectId(id) })
+
+    if (result.deletedCount === 0) {
+      return new Response(JSON.stringify({ error: 'URL not found' }), {
+        status: 404,
+        headers: { 'Content-Type': 'application/json' }
+      })
+    }
+
     return new Response(JSON.stringify({ success: true }), {
       headers: { 'Content-Type': 'application/json' }
     })
   } catch (error) {
     console.error('Delete error:', error)
-    return new Response(JSON.stringify({ error: 'Database error' }), {
+    return new Response(JSON.stringify({ error: 'Server error' }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' }
     })

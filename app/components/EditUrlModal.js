@@ -50,49 +50,47 @@ const EditUrlModal = ({ url, onClose, onSave }) => {
           </button>
         </div>
 
-        <form onSubmit={handleSubmit}>
-          <div className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium text-slate-300 dark:text-slate-600 mb-1">
-                Original URL
-              </label>
-              <input
-                type="url"
-                value={formData.originalUrl}
-                onChange={(e) => setFormData({ ...formData, originalUrl: e.target.value })}
-                className="w-full p-2 rounded-lg bg-slate-700/50 dark:bg-slate-200/50 border border-slate-600/30 dark:border-slate-400/30 text-slate-100 dark:text-slate-800"
-                required
-              />
-            </div>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium mb-2 text-slate-300 dark:text-slate-600">
+              Original URL
+            </label>
+            <input
+              type="url"
+              value={formData.originalUrl}
+              onChange={(e) => setFormData({ ...formData, originalUrl: e.target.value })}
+              className="w-full p-2 rounded-lg bg-slate-700/50 dark:bg-slate-200/50 border border-slate-600/30 dark:border-slate-400/30 text-slate-100 dark:text-slate-800"
+              required
+            />
+          </div>
 
-            <div>
-              <label className="block text-sm font-medium text-slate-300 dark:text-slate-600 mb-1">
-                Short Code
-              </label>
-              <input
-                type="text"
-                value={formData.shortUrl}
-                onChange={(e) => setFormData({ ...formData, shortUrl: e.target.value })}
-                className="w-full p-2 rounded-lg bg-slate-700/50 dark:bg-slate-200/50 border border-slate-600/30 dark:border-slate-400/30 text-slate-100 dark:text-slate-800"
-                required
-              />
-            </div>
+          <div>
+            <label className="block text-sm font-medium mb-2 text-slate-300 dark:text-slate-600">
+              Short Code
+            </label>
+            <input
+              type="text"
+              value={formData.shortUrl}
+              onChange={(e) => setFormData({ ...formData, shortUrl: e.target.value })}
+              className="w-full p-2 rounded-lg bg-slate-700/50 dark:bg-slate-200/50 border border-slate-600/30 dark:border-slate-400/30 text-slate-100 dark:text-slate-800"
+              required
+            />
+          </div>
 
-            <div className="flex justify-end space-x-3">
-              <button
-                type="button"
-                onClick={onClose}
-                className="px-4 py-2 rounded-lg text-slate-300 dark:text-slate-600 hover:bg-slate-700/30 dark:hover:bg-slate-200/30"
-              >
-                Cancel
-              </button>
-              <button
-                type="submit"
-                className="px-4 py-2 bg-sky-500 hover:bg-sky-600 rounded-lg text-white"
-              >
-                Save Changes
-              </button>
-            </div>
+          <div className="flex justify-end gap-3">
+            <button
+              type="button"
+              onClick={onClose}
+              className="px-4 py-2 rounded-lg text-slate-300 dark:text-slate-600 hover:bg-slate-700/30 dark:hover:bg-slate-200/30"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              className="px-4 py-2 bg-sky-500 hover:bg-sky-600 rounded-lg text-white"
+            >
+              Save Changes
+            </button>
           </div>
         </form>
       </div>
