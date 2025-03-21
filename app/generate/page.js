@@ -49,7 +49,7 @@ const Generated = () => {
       <div className="duration-700 w-full max-w-2xl space-y-8">
         {/* Header Section */}
         <div className="duration-700 text-center space-y-6">
-          <div className="duration-700 inline-flex items-center gap-3 bg-slate-800/60 dark:bg-slate-200/60 backdrop-blur-lg px-6 py-3 rounded-full border border-slate-700/50 dark:border-slate-400/50">
+          <div className="duration-700 inline-flex items-center gap-3 bg-slate-800/60 dark:bg-slate-200/60 backdrop-blur-lg px-6 py-3 md:mt-4 rounded-full border border-slate-700/50 dark:border-slate-400/50">
             <FaRegStar className="duration-700 text-teal-400 dark:text-teal-600 animate-pulse" />
             <span className="duration-700 text-slate-300 dark:text-slate-600 text-lg">Instant URL Shortener</span>
           </div>
