@@ -57,7 +57,7 @@ const Footer = () => {
                             relative group"
                 >
                   {path.charAt(0).toUpperCase() + path.slice(1)}
-                  <span className=" absolute -bottom-1 left-0 w-0 h-px bg-teal-400 group-hover:w-full transition-all duration-300"></span>
+                  <span className=" absolute -bottom-1 left-0 w-0 h-px bg-teal-400 group-hover:w-full transition-all duration-500"></span>
                 </a>
               ))}
             </nav>
@@ -70,28 +70,28 @@ const Footer = () => {
                 href="https://linkedin.com/in/zeeshan-munir-b073a51b9"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="duration-700 text-gray-400 hover:text-[#0A66C2] transition-colors 
+                className="duration-300 text-gray-400 hover:text-[#0A66C2] transition-colors 
                           p-2 rounded-full bg-gray-800 hover:bg-gray-700 hover:shadow-glow"
               >
-                <FaLinkedin className="duration-700 h-6 w-6" />
+                <FaLinkedin className="duration-100 h-6 w-6" />
               </a>
 
               <a
                 href="mailto:zeeshan.x01000@gmail.com"
-                className="duration-700 text-gray-400 hover:text-red-400 transition-colors
+                className="duration-300 text-gray-400 hover:text-red-400 transition-colors
                           p-2 rounded-full bg-gray-800 hover:bg-gray-700 hover:shadow-glow"
               >
-                <FaEnvelope className="duration-700 h-6 w-6" />
+                <FaEnvelope className="duration-100 h-6 w-6" />
               </a>
 
               <a
                 href="https://instagram.com/zeeshan_x01"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="duration-700 text-gray-400 hover:text-pink-500 transition-colors
+                className="duration-300 text-gray-400 hover:text-pink-500 transition-colors
                           p-2 rounded-full bg-gray-800 hover:bg-gray-700 hover:shadow-glow"
               >
-                <FaInstagram className="duration-700 h-6 w-6" />
+                <FaInstagram className="duration-100 h-6 w-6" />
               </a>
             </div>
 
@@ -118,12 +118,12 @@ const Footer = () => {
         </div>
 
         {/* Copyright section */}
-        <div className="duration-700 border-t border-gray-800 py-8 text-center">
-          <p className="duration-700 text-xs text-gray-400 hover:text-cyan-400 transition-colors">
+        <div className="duration-300 border-t border-gray-800 py-8 text-center">
+          <p className="duration-300 text-xs text-gray-400 hover:text-cyan-400 transition-colors">
             &copy; {currentYear} Zeeshan Munir. All rights reserved.
           </p>
-          <p className="duration-700 mt-1 text-xs text-gray-400 hover:text-cyan-400 transition-colors">
-            Built with ❤️ using React and Tailwind CSS
+          <p className="duration-300 mt-1 text-xs text-gray-400 hover:text-cyan-400 transition-colors">
+            Built with ❤️ using NextJS, MongoDB and Tailwind CSS
           </p>
         </div>
       </div>
