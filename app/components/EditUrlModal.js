@@ -1,8 +1,10 @@
 'use client'
 import { useState, useEffect } from 'react'
-import { FaTimes } from 'react-icons/fa'
+import { FaRocket, FaTimes } from 'react-icons/fa'
 
 const EditUrlModal = ({ url, onClose, onSave }) => {
+  
+    const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
     originalUrl: '',
     shortUrl: ''
@@ -37,7 +39,7 @@ const EditUrlModal = ({ url, onClose, onSave }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 backdrop-blur-sm">
-      <div className="bg-slate-800 dark:bg-slate-100 rounded-xl p-6 w-full max-w-md">
+      <div className="bg-slate-800 dark:bg-slate-100 rounded-xl p-6 w-full max-w-md bg-opacity-50 dark:bg-opacity-50 border border-slate-700 dark:border-slate-400">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xl font-bold text-slate-100 dark:text-slate-800">
             Edit URL
@@ -85,12 +87,32 @@ const EditUrlModal = ({ url, onClose, onSave }) => {
             >
               Cancel
             </button>
+
+{/* 
             <button
               type="submit"
-              className="px-4 py-2 bg-sky-500 hover:bg-sky-600 rounded-lg text-white"
+              className="px-4 py-2 bg-gradient-to-br from-sky-900 via-sky-800 to-sky-900 dark:from-sky-700 dark:via-sky-600 dark:to-sky-700 hover:bg-sky-600 rounded-lg text-white"
             >
               Save Changes
+            </button> */}
+
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="duration-700 wfull py-4 px-6 bg-gradient-to-r from-sky-500 to-teal-500 dark:from-sky-600 dark:to-teal-600 hover:from-sky-600 dark:hover:from-sky-500 hover:to-teal-600 dark:hover:to-teal-500 rounded-xl font-semibold text-white dark:text-slate-100 flex items-center justify-center gap-2 transition-all hover:shadow-lg hover:scale-[1.02] disabled:opacity-70"
+            >
+              {loading ? (
+                <div className="duration-700 animate-spin rounded-full h-5 w-5 border-b-2 border-white dark:border-slate-800"></div>
+              ) : (
+                <>
+                  <FaRocket className="duration-700" />
+                  <span>Save Changes</span>
+                </>
+              )}
             </button>
+
+
           </div>
         </form>
       </div>

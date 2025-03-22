@@ -10,12 +10,34 @@ const Generated = () => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
-  const generate = async () => {
+  const generate = async (e) => {
+    e.preventDefault() // Prevent default form submission
+
+    try {
+      // Validate URL format
+      const urlObj = new URL(url)
+      if (!['http:', 'https:'].includes(urlObj.protocol)) {
+        setError('Invalid URL protocol - must be HTTP/HTTPS')
+        return
+      }
+    } catch {
+      setError('Invalid URL format')
+      return
+    }
+
+    // Validate short URL format
+    if (shortUrl && !/^[a-zA-Z0-9_-]+$/.test(shortUrl)) {
+      setError('Short code can only contain letters, numbers, underscores and dashes')
+      return
+    }
+
+
+
     if (!url) {
       setError('Please enter a URL to shorten')
       return
     }
-    
+
     setLoading(true)
     try {
       const response = await fetch("/api/generate", {
@@ -23,7 +45,7 @@ const Generated = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url, shortUrl })
       })
-      
+
       const result = await response.json()
       if (response.ok) {
         setGenerated(`${process.env.NEXT_PUBLIC_HOST}/${shortUrl || result.generatedId}`)
@@ -61,6 +83,12 @@ const Generated = () => {
         {/* Main Card */}
         <div className="duration-700 bg-slate-800/60 dark:bg-slate-200/60 backdrop-blur-xl rounded-2xl p-8 dark:border-slate-400/30 shadow-2xl  border border-slate-700/50 transition-all hover:border-sky-500/30">
           <div className="duration-700 space-y-8">
+
+
+
+
+
+
             {/* Input Section */}
             <div className="duration-700 space-y-6">
               <div className="duration-700 relative group">
@@ -70,6 +98,7 @@ const Generated = () => {
                   type="url"
                   placeholder="Paste your long URL here"
                   value={url}
+                  required
                   onChange={(e) => setUrl(e.target.value)}
                 />
               </div>
@@ -79,8 +108,9 @@ const Generated = () => {
                 <input
                   className="duration-700 w-full pl-12 pr-4 py-3.5 bg-slate-900/40 dark:bg-slate-100/40 rounded-xl border border-slate-700 dark:border-slate-400 focus:border-teal-400 dark:focus:border-teal-600 focus:ring-2 focus:ring-teal-400/20 dark:focus:ring-teal-600/20 text-slate-200 dark:text-slate-800 placeholder-slate-500 dark:placeholder-slate-400 transition-all"
                   type="text"
-                  placeholder="Custom short code (optional)"
+                  placeholder="Custom short code"
                   value={shortUrl}
+                  required
                   onChange={(e) => setShortUrl(e.target.value)}
                 />
               </div>
@@ -108,6 +138,29 @@ const Generated = () => {
                 )}
               </button>
             </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             {/* Result Section */}
             {generated && (
